@@ -1,5 +1,6 @@
 import { writable } from "svelte/store";
 
+//get the source code at https://github.com/pandapog123/Svelte-State-Management/blob/main/src/store.js
 export const globalState = writable({
   currentText: "",
   currentSelectedRadioButton: "",
@@ -11,17 +12,8 @@ export const globalState = writable({
     "Fourth Radio Button",
   ],
   checkBoxes: [
-    {
-      label: "Display Data",
-      checked: false,
-    },
-    {
-      label: "Display Form",
-      checked: true,
-    },
-    {
-      label: "Display List",
-      checked: true,
-    },
+    { label: "Display Data", checked: false },
+    { label: "Display Form", checked: true },
+    { label: "Display List", checked: true },
   ],
 });

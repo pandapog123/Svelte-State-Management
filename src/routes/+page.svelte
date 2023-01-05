@@ -13,7 +13,7 @@
 
       $globalState.error = "";
     } else {
-      $globalState.error = "Text Field Cannot Be Empty";
+      $globalState.error = "Text field Cannot Be Empty.";
     }
   }
 
@@ -23,14 +23,14 @@
 </script>
 
 <section>
-  {#each $globalState.checkBoxes as checkBox}
+  {#each $globalState.checkBoxes as checkbox}
     <div>
       <input
         type="checkbox"
-        id={checkBox.label}
-        bind:checked={checkBox.checked}
+        id={checkbox.label}
+        bind:checked={checkbox.checked}
       />
-      <label for={checkBox.label}>{checkBox.label}</label>
+      <label for={checkbox.label}>{checkbox.label}</label>
     </div>
   {/each}
 </section>
@@ -38,9 +38,7 @@
 <hr />
 
 {#if $globalState.checkBoxes[0].checked}
-  <section>
-    <DataDisplay />
-  </section>
+  <section><DataDisplay /></section>
 
   <hr />
 {/if}
@@ -50,13 +48,14 @@
     <form on:submit|preventDefault={handleTextFieldClick}>
       <input bind:value={$globalState.currentText} />
 
-      <button> Create New Field </button>
+      <button type="submit">Create New Field</button>
     </form>
   </section>
 
   {#if $globalState.error !== ""}
     <section>
       {$globalState.error}
+
       <button on:click={handleErrorClick}>Close</button>
     </section>
   {/if}
@@ -74,19 +73,10 @@
           id={index}
           bind:group={$globalState.currentSelectedRadioButton}
           value={buttonName}
-        />
-        <label for={index}>
-          {buttonName}
-        </label>
+        /><label for={index}>{buttonName}</label>
       </div>
     {/each}
   </section>
 
   <hr />
 {/if}
-
-<style>
-  section {
-    margin: 1rem;
-  }
-</style>
